@@ -11,5 +11,9 @@
 #
 
 class TeamRole < ActiveRecord::Base
-  attr_accessible :person_id, :role_id, :team_id
+
+	belongs_to :person
+	belongs_to :team
+	belongs_to :role
+
 end

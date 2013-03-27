@@ -13,6 +13,8 @@
 class Person < ActiveRecord::Base
 	attr_accessible :email, :first, :last
 
+	has_many :team_roles
+
 	before_save { |person| person.email.downcase! }
 
 
