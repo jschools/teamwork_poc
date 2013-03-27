@@ -2,7 +2,6 @@ TeamworkPoc::Application.routes.draw do
 
   resources :divisions
 
-
   resources :roles
 
   resources :users
