@@ -12,9 +12,10 @@
 #
 
 class Division < ActiveRecord::Base
-	attr_accessible :admin_user_id, :lead_person_id, :name, :project_id
+	attr_accessible :admin_user, :lead_person, :name, :project
 
 	belongs_to :project
+	belongs_to :admin_user, foreign_key: "id", class_name: "User"
 
 	validates :name, presence: true
 end
