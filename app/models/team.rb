@@ -16,6 +16,7 @@ class Team < ActiveRecord::Base
 
 	belongs_to :division
 	belongs_to :admin_user, foreign_key: "admin_user_id", class_name: "User"
+	belongs_to :lead_person, foreign_key: "lead_person_id", class_name: "Person"
 	has_many :team_roles
 
 	validates :name, presence: true

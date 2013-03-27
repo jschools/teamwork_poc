@@ -14,6 +14,8 @@ class Person < ActiveRecord::Base
 	attr_accessible :email, :first, :last
 
 	has_many :team_roles
+	has_many :team_lead_positions, foreign_key: "lead_person_id", class_name: "Team"
+	has_many :division_lead_positions, foreign_key: "lead_person_id", class_name: "Division"
 
 	before_save { |person| person.email.downcase! }
 
