@@ -1,4 +1,7 @@
 TeamworkPoc::Application.routes.draw do
+  resources :projects
+
+
   resources :people
 
 
