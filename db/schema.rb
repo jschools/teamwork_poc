@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130327054525) do
+ActiveRecord::Schema.define(:version => 20130327054715) do
 
   create_table "people", :force => true do |t|
     t.string   "first"
@@ -33,6 +33,14 @@ ActiveRecord::Schema.define(:version => 20130327054525) do
     t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "users", :force => true do |t|
+    t.string   "name"
+    t.string   "password_digest"
+    t.boolean  "sysadmin",        :default => false
+    t.datetime "created_at",                         :null => false
+    t.datetime "updated_at",                         :null => false
   end
 
 end
