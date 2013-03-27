@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130327053237) do
+ActiveRecord::Schema.define(:version => 20130327054525) do
 
   create_table "people", :force => true do |t|
     t.string   "first"
@@ -22,5 +22,17 @@ ActiveRecord::Schema.define(:version => 20130327053237) do
   end
 
   add_index "people", ["email"], :name => "index_people_on_email", :unique => true
+
+  create_table "projects", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "teams", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
 end
