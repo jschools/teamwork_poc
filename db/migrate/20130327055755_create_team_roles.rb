@@ -7,5 +7,10 @@ class CreateTeamRoles < ActiveRecord::Migration
 
       t.timestamps
     end
+
+    add_index :team_roles, :team_id
+    add_index :team_roles, :person_id
+    add_index :team_roles, :role_id
+    add_index :team_roles, [:team_id, :person_id, :role_id], unique: true
   end
 end
