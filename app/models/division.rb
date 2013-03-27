@@ -15,7 +15,7 @@ class Division < ActiveRecord::Base
 	attr_accessible :name, :project
 
 	belongs_to :project
-	belongs_to :admin_user, foreign_key: "id", class_name: "User"
+	belongs_to :admin_user, foreign_key: "admin_user_id", class_name: "User"
 	has_many :teams
 
 	validates :name, presence: true

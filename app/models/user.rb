@@ -14,7 +14,8 @@ class User < ActiveRecord::Base
 	attr_accessible :name, :password, :password_confirmation, :sysadmin
 	has_secure_password
 
-	has_many :division_admins, foreign_key: "admin_user_id", class_name: "Division"
+	has_one :division, foreign_key: "admin_user_id"
+	has_one :team, foreign_key: "admin_user_id"
 
 	validates :password, presence: true, length: { minimum: 4 }
 	validates :password_confirmation, presence: true
