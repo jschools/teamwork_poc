@@ -9,5 +9,9 @@
 #
 
 class Project < ActiveRecord::Base
-  attr_accessible :name
+	attr_accessible :name
+
+	has_many :divisions, dependent: :destroy
+
+	validates :name, presence: true, uniqueness: { case_sensitive: false }
 end
