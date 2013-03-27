@@ -12,5 +12,10 @@
 #
 
 class Team < ActiveRecord::Base
-  attr_accessible :admin_user_id, :division_id, :lead_person_id, :name
+	attr_accessible :name
+
+	belongs_to :division
+
+
+	validates :name, presence: true
 end
