@@ -1,6 +1,0 @@
-
-module Helpers
-
-
-
-end
