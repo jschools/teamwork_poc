@@ -102,13 +102,11 @@ describe Person do
 		let(:division) { Division.create(name: "division") }
 
 		before do
-			division.save!
 			division.lead_person = person
 			division.save!
 		end
 
 		it { should be_valid }
-		its(:division_lead_positions) { should include(division) }
 
 		it "should be its division's lead_person" do
 			division.lead_person.should == person
@@ -125,7 +123,7 @@ describe Person do
 		describe "destruction of a leading division" do
 			before { division.destroy }
 
-			it { should_not be_destroyed }
+			it { should be_destroyed }
 		end
 
 	end
