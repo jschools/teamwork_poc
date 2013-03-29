@@ -16,6 +16,7 @@ DIVISION_1 = "Division 1"
 DIVISION_2 = "Division 2"
 DIVISION_3 = "Division 3"
 DIVISION_4 = "Division 4"
+TEAM_1 = "Team 1"
 
 describe Project do
 
@@ -58,10 +59,19 @@ describe Project do
 		it { should have(2).divisions }
 
 		describe "itself" do
-			before { project.destroy }
+			before do
+				div_1.teams.create(name: TEAM_1)
+				project.save!
+
+				project.destroy
+			end
 
 			it "should destroy child divisions" do
 				Division.count.should == 0
+			end
+
+			it "should destroy its child divisions' teams" do
+				Team.count.should == 0
 			end
 		end
 
@@ -80,6 +90,10 @@ describe Project do
 				Division.count.should == 2
 				Division.all.should include(div_1, div_2)
 				Division.all.should_not include(div_3, div_4)
+				div_1.should_not be_destroyed
+				div_2.should_not be_destroyed
+				div_3.should be_destroyed
+				div_4.should be_destroyed
 			end
 		end
 
