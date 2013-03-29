@@ -56,8 +56,6 @@ describe Project do
 			project.save!
 		end
 
-		it { should have(2).divisions }
-
 		describe "itself" do
 			before do
 				div_1.teams.create(name: TEAM_1)
