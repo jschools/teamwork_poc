@@ -11,12 +11,13 @@
 #
 
 class User < ActiveRecord::Base
-	attr_accessible :name, :password, :password_confirmation, :sysadmin
+	attr_accessible :name, :password, :password_confirmation
 	has_secure_password
 
 	has_one :division, foreign_key: "admin_user_id"
 	has_one :team, foreign_key: "admin_user_id"
 
+	validates :name, presence: true
 	validates :password, presence: true, length: { minimum: 4 }
 	validates :password_confirmation, presence: true
 
