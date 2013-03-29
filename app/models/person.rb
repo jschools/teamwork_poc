@@ -8,10 +8,11 @@
 #  email      :string(255)
 #  created_at :datetime        not null
 #  updated_at :datetime        not null
+#  phone      :string(255)
 #
 
 class Person < ActiveRecord::Base
-	attr_accessible :email, :first, :last
+	attr_accessible :email, :first, :last, :phone
 
 	has_many :team_roles
 	has_many :team_lead_positions, foreign_key: "lead_person_id", class_name: "Team"
@@ -23,9 +24,7 @@ class Person < ActiveRecord::Base
 	VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
 	validate :first_or_last
-	validates :email, presence: true, format: { with: VALID_EMAIL_REGEX },
-					  uniqueness: { case_sensitive: false }
-
+	validates :email, presence: true, format: { with: VALID_EMAIL_REGEX }
 
 	private
 	def first_or_last

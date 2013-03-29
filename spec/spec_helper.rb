@@ -36,6 +36,4 @@ RSpec.configure do |config|
   #     --seed 1234
   config.order = "random"
 
-  # Include helpers
-  config.include Helpers
 end

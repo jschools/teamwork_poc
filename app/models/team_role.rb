@@ -12,7 +12,7 @@
 
 class TeamRole < ActiveRecord::Base
 
-	belongs_to :person
+	belongs_to :person, dependent: :destroy
 	belongs_to :team
 	belongs_to :role
 
