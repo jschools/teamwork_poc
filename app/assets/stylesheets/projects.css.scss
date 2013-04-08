@@ -1,3 +1,18 @@
-// Place all the styles related to the Projects controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+@import "bootstrap";
+
+body {
+	padding-left: 20px;
+}
+
+h1 {
+	font-size: 14pt;
+}
+
+table {
+	td, th {
+		padding-right: 20px;
+	}
+	th {
+		text-align: left;
+	}
+}

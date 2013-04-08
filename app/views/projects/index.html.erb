@@ -1,16 +1,33 @@
-<h1>Listing projects</h1>
+<h1>All Projects:</h1>
 
 <table>
   <tr>
     <th>Name</th>
-    <th></th>
-    <th></th>
-    <th></th>
+    <th>Divisions</th>
+    <th>Teams</th>
+    <th>People</th>
+    <th><!-- show --></th>
+    <th><!-- edit --></th>
+    <th><!-- destroy --></th>
   </tr>
 
 <% @projects.each do |project| %>
+  <% divisions = project.divisions %>
+  <% team_count = 0 %>
+  <% person_count = 0 %>
+
+  <% divisions.each do |division| %>
+    <% division.teams.each do |team| %>
+      <% team_count += 1 %>
+      <% person_count += team.team_roles.count %>
+    <% end %>
+  <% end %>
+
   <tr>
     <td><%= project.name %></td>
+    <td><%= divisions.count %></td>
+    <td><%= team_count %></td>
+    <td><%= person_count %></td>
     <td><%= link_to 'Show', project %></td>
     <td><%= link_to 'Edit', edit_project_path(project) %></td>
     <td><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
